@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "99739017995",
+    "firebase_url": "https://mind-over-myths.firebaseio.com",
+    "project_id": "mind-over-myths",
+    "storage_bucket": "mind-over-myths.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:99739017995:android:9e6c9f601ca544cdfcb80e",
+        "android_client_info": {
+          "package_name": "com.merlin.mind_over_myths"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "99739017995-qkq10ckb7dc2b9vq7996kand6sjam12q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCgrV0moJs3wr_zk1VZ13sK1Os8YWXxW2w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "99739017995-qkq10ckb7dc2b9vq7996kand6sjam12q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
