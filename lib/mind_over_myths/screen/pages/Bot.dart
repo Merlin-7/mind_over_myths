@@ -9,8 +9,11 @@ class Bot extends StatefulWidget {
 }
 
 class _BotState extends State<Bot> {
+
+
    final List<ChatMessage> _messages = <ChatMessage>[];
   final TextEditingController _textController = new TextEditingController();
+
 
   Widget _buildTextComposer() {
     return new IconTheme(
@@ -39,10 +42,10 @@ class _BotState extends State<Bot> {
     );
   }
 
-  void Response(query) async {
+  void Response(text) async {
     _textController.clear();
-    Dialogflow dialogflow =Dialogflow(token:"debbb11e6edc47c080ee8ed133890a9e");
-    AIResponse response = await dialogflow.sendQuery(query);
+    Dialogflow dialogflow =Dialogflow(token:"a74ab670a5a74438b6fa4b1393419e4e");
+    AIResponse response = await dialogflow.sendQuery(text);
     ChatMessage message = new ChatMessage(
       text: response.getMessageResponse(),
       name: "Bot",
@@ -98,7 +101,7 @@ class ChatMessage extends StatelessWidget {
     return <Widget>[
       new Container(
         margin: const EdgeInsets.only(right: 16.0),
-        child: new CircleAvatar(child: new Image.asset("img/placeholder.png")),
+        child: new CircleAvatar(child: new Image.asset("assets/images/bot.png")),
       ),
       new Expanded(
         child: new Column(

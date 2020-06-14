@@ -19,8 +19,6 @@ class _BottomNavigationState extends State<BottomNavigation>
     with AutomaticKeepAliveClientMixin {
   int _currentIndex = 0;
   final List<Widget> _children = [
-    NewsPage(),
-    GlobalStatistics(),
     Symptoms(),
     Resources(),
     Bot()
@@ -39,24 +37,29 @@ class _BottomNavigationState extends State<BottomNavigation>
       body: _children[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-              icon: Icon(
-                FontAwesomeIcons.newspaper,
-              ),
-              title: Text("News")),
-          BottomNavigationBarItem(
-              icon: Icon(
-                FontAwesomeIcons.chartLine,
-              ),
-              title: Text("Statistics")),
+          // BottomNavigationBarItem(
+          //     icon: Icon(
+          //       FontAwesomeIcons.newspaper,
+          //     ),
+          //     title: Text("News")),
+          // BottomNavigationBarItem(
+          //     icon: Icon(
+          //       FontAwesomeIcons.chartLine,
+          //     ),
+          //     title: Text("Statistics")),
           BottomNavigationBarItem(
               icon: Icon(
                 FontAwesomeIcons.bookMedical,
               ),
               title: Text("Symptoms")),
-          BottomNavigationBarItem(
+              BottomNavigationBarItem(
               icon: Icon(
                 FontAwesomeIcons.phone,
+              ),
+              title: Text("Nearby Hospital")),
+          BottomNavigationBarItem(
+              icon: Icon(
+                FontAwesomeIcons.hospital,
               ),
               title: Text("Resources & Hotline")),
           BottomNavigationBarItem(

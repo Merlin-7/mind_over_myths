@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:intl/intl.dart';
+
 import 'package:mind_over_myths/mind_over_myths/Model/stat.dart';
 import 'package:http/http.dart' as http;
 import 'package:mind_over_myths/mind_over_myths/utils/size_config.dart';
@@ -20,11 +21,63 @@ class GlobalStatistics extends StatefulWidget {
 class _GlobalStatisticsState extends State<GlobalStatistics> {
   Position _currentPosition;
   String _currentCountry;
+  String countryName = '';
 
+
+  // _onPressedFunction(){
+  //   if(_currentCountry!=null){
+  //     _getCurrentLocation();
+
+  //   }
+  //   else{
+  //     _asyncInputDialog(context);
+  //   }
+  // }
+
+// Future<String> _asyncInputDialog(BuildContext context) async {
+  
+//   return showDialog<String>(
+//     context: context,
+//     barrierDismissible: false, // dialog is dismissible with a tap on the barrier
+//     builder: (BuildContext context) {
+//       return AlertDialog(
+//         title: Text('Enter your Country'),
+//         content: new Row(
+//           children: <Widget>[
+//             new Expanded(
+//                 child: new TextField(
+//               autofocus: true,
+//               decoration: new InputDecoration(
+//                   labelText: 'Country Name ', hintText: 'eg. Ghana'),
+//               onChanged: (value) {
+//                 _currentCountry= value;
+//               },
+//             ))
+//           ],
+//         ),
+//         actions: <Widget>[
+//           FlatButton(
+//             child: Text('Ok'),
+//             onPressed: () {
+//               Navigator.of(context).push(new MaterialPageRoute(
+//                                             builder:(BuildContext context) =>
+//                                                 CountryStatisticsNew(
+//                                                   countryLocate:
+//                                                       _currentCountry,
+//                                                 )));
+//             },
+//           ),
+//         ],
+//       );
+//     },
+//   );
+// }
+
+  
   Geolocator geolocator = Geolocator()..forceAndroidLocationManager = true;
 
-  _getCurrentLocation() {
-    geolocator
+ _getCurrentLocation(){
+     geolocator
         .getCurrentPosition(desiredAccuracy: LocationAccuracy.best)
         .then((Position position) {
       setState(() {
@@ -50,6 +103,7 @@ class _GlobalStatisticsState extends State<GlobalStatistics> {
     } catch (e) {
       print(e);
     }
+    return _currentCountry;
   }
 
   Future<Null> refreshStat() async {
@@ -324,17 +378,43 @@ class _GlobalStatisticsState extends State<GlobalStatistics> {
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(10.0),
                                 ),
-                                onPressed: () {
+                                onPressed:(){
                                   _getCurrentLocation();
-                                  if (_currentCountry != null) {
-                                    Navigator.of(context).push(
+                                  if(_currentCountry!=null){
+                                                                 Navigator.of(context).push(
                                         new MaterialPageRoute(
-                                            builder: (BuildContext context) =>
+                                            builder:(BuildContext context) =>
                                                 CountryStatisticsNew(
                                                   countryLocate:
                                                       _currentCountry,
-                                                )));
-                                  }
+                                                )));}
+
+
+                                //if (_currentCountry!=null){
+                                //   _getCurrentLocation();
+                                // }
+                                // {  
+                                //   _getCurrentLocation();
+                                //   if (_currentCountry != null) {
+                                //   print("_currentCountry");
+
+                                //     Navigator.of(context).push(
+                                //         new MaterialPageRoute(
+                                //             builder:(BuildContext context) =>
+                                //                 CountryStatisticsNew(
+                                //                   countryLocate:
+                                //                       _currentCountry,
+                                //                 )));
+                                  
+
+                                //   }
+                                
+                                //   else{
+                                //   _asyncInputDialog();
+
+                                //   }
+                                  
+                                  
                                 },
                                 color: Colors.green[800],
                                 child: Text(

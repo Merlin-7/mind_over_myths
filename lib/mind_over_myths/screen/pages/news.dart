@@ -23,7 +23,7 @@ class _NewsPageState extends State<NewsPage> {
   _getNews() async {
     var res = await http.get(
         Uri.encodeFull(
-            "https://newsapi.org/v2/everything?q=coronavirus&apiKey=d5c1f8db8b6f44b49354f8fd33d9ba4e"),
+            "https://newsapi.org/v2/everything?q=coronavirus&sortBy=publishedAt&language=en&apiKey=d5c1f8db8b6f44b49354f8fd33d9ba4e"),
         headers: {"Accept": "application/json"});
     if (res.statusCode==200) {
       

@@ -16,41 +16,41 @@ class Homepage extends StatefulWidget {
 }
 
 class _HomepageState extends State<Homepage> {
-   Position _currentPosition;
+//    Position _currentPosition;
 
-  String _currentCountry;
+//   String _currentCountry;
 
-  Geolocator geolocator = Geolocator()..forceAndroidLocationManager = true;
+//   Geolocator geolocator = Geolocator()..forceAndroidLocationManager = true;
 
- _getCurrentLocation() {
-      geolocator
-        .getCurrentPosition(desiredAccuracy: LocationAccuracy.best)
-        .then((Position position) {
-      setState(() {
-        _currentPosition = position;
-      });
+//  _getCurrentLocation() {
+//       geolocator
+//         .getCurrentPosition(desiredAccuracy: LocationAccuracy.best)
+//         .then((Position position) {
+//       setState(() {
+//         _currentPosition = position;
+//       });
 
-       _getAddressFromLatLng();
-     }).catchError((e) {
-      print(e);
-    });
-   }
+//        _getAddressFromLatLng();
+//      }).catchError((e) {
+//       print(e);
+//     });
+//    }
 
-   _getAddressFromLatLng() async {
-     try {
-     List<Placemark> p = await geolocator.placemarkFromCoordinates(
-         _currentPosition.latitude, _currentPosition.longitude);
+//    _getAddressFromLatLng() async {
+//      try {
+//      List<Placemark> p = await geolocator.placemarkFromCoordinates(
+//          _currentPosition.latitude, _currentPosition.longitude);
 
-      Placemark place = p[0];
+//       Placemark place = p[0];
 
-      setState(() {
-        _currentCountry =
-            "${place.country}";
-      });
-    } catch (e) {
-      print(e);
-    }
-  }
+//       setState(() {
+//         _currentCountry =
+//             "${place.country}";
+//       });
+//     } catch (e) {
+//       print(e);
+//     }
+//   }
 
   @override
   Widget build(BuildContext context) {
@@ -122,17 +122,17 @@ class _HomepageState extends State<Homepage> {
                                 borderRadius: BorderRadius.circular(10.0),
                               ),
                             onPressed: (){
-                                _getCurrentLocation();
-                                if(_currentCountry !=null){
+                              //   _getCurrentLocation();
+                              //   if(_currentCountry !=null){
                               
-                              print(_currentCountry);
+                              // print(_currentCountry);
 
-                                }else{
+                              //   }else{
                                   Navigator.of(context).push(
                                 new MaterialPageRoute(builder: (BuildContext context)=> BottomNavigation(),)
 
                               );
-                              print("BottomNavigation Tapped");}
+                              
                             },
                             color: const Color(0xff0d0b1a),
                             child: Text("Getting Started".toUpperCase(),

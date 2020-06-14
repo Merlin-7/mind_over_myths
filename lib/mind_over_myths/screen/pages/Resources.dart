@@ -200,9 +200,9 @@ class _ResourcesState extends State<Resources> {
                     child: RaisedButton(
                       onPressed: () async {
                         if (await canLaunch(
-                            "https://www.befrienders.org/directory?country=Ghana"))
+                            "https://www.befrienders.org"))
                           await launch(
-                            "https://www.befrienders.org/directory?country=Ghana",
+                            "https://www.befrienders.org/",
                           );
                       },
                       elevation: 2.0,

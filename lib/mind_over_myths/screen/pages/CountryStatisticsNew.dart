@@ -57,7 +57,7 @@ class _CountryStatisticsNewState extends State<CountryStatisticsNew> {
                       Positioned(
                         top: 43.0,
                         left: 96.0,
-                        width: 163.2,
+                        
                         child: Text(
                           '${snapshot.data.country} OVERVIEW'.toUpperCase(),
                           style: TextStyle(
@@ -117,8 +117,10 @@ class _CountryStatisticsNewState extends State<CountryStatisticsNew> {
                           ),
                         ),
                       ),
-                      Transform.translate(
-                        offset: Offset(92.0, 64.0),
+                      Positioned(
+                        top:65.0,
+                        left: 92.0,
+                       
                         child: Text(
                           '${DateFormat('yyyy-MM-dd - kk:mm').format(DateTime.fromMillisecondsSinceEpoch(snapshot.data.updated, isUtc: false))} GMT',
                           style: TextStyle(
